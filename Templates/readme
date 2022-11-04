@@ -1,0 +1,14 @@
+# Use template to share header and foot of the html.
+### Base - Home Page ###
+1. Home Page : set link to homepage 'index.html'
+
+### index ###
+1. set link to sign up
+
+### Signup ###
+1. input First name,
+2. Submit button ------ Redirect to thankyou page
+
+### thankyou ###
+1. get the parameter from the form in signup html.
+2. redirect to another page.

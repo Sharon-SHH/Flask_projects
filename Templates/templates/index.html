@@ -1,0 +1,10 @@
+<!-- Same header and footer in html: inherit -->
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="jumbotron">
+        <p>Welcome to My page!</p>
+        <p>Please Sign Up if you want. </p>
+        <a href="{{url_for('signup')}}">sign up here!</a>
+    </div>
+{% endblock %}
