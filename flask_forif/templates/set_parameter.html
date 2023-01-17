@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+{% set num_do = len(todos) %}
+{% if num_do > 0 %}
+    <p>You have {{num_do}} left to do today.</p>
+    <ul>
+{% for todo in todos %}
+    <li>{{todo}}</li>
+{% endfor %}
+    </ul>
+{% else %}
+    <p>You have nothing to do today. Relax.</p>
+{% endif %}
+</body>
+</html>
+
