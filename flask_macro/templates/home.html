@@ -1,0 +1,19 @@
+<!-- {% from "macros.jinja2" import todo_li %}
+{% from "macros.jinja2" import todo_list %} -->
+{% import "macros.jinja2" as macros %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% for text, completed in todos %}
+	{{macros.todo_li(text, completed)}}
+{% endfor %}
+<p>Todo list: </p>
+{{macros.todo_list(todos)}}
+</body>
+</html>
