@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+
+<div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        {{macros.build_site_sidebar()}}
+    </div>
+
+        <div class="col py-3">
+            <section>
+                <div class="row text-dark align-top">
+                    <marquee width="50%" direction="left" height="30px">
+                        <span class="text-success"><b>Top performers</b></span> are: AAPL 2.95 32 -10bp, BMW 4.5 50 -5bp,... <span class="text-danger"><b>Bottom performers</b></span> are: CHTR 2.9 32 +15bp, ...
+                    </marquee>
+                </div>
+            </section>
+
+                <table id="data" class="table table-striped"> <!--  -->
+        <thead>
+          <tr>
+              <th>Asset</th>
+              <th>Group</th>
+              <th>Cusip</th>
+              <th>Security Name</th>
+              <th>YTW</th>
+              <th>Px Yest</th>
+              <th>Px Today</th>
+              <th>Px Chg$</th>
+              <th>Px Chg%</th>
+              <th>Spr Yest</th>
+              <th>Spr Today</th>
+              <th>Spr Chg</th>
+              <th>Benchmark</th>
+              <th>Source</th>
+              <th>Yes Px Ov</th>
+              <th>Px Ov</th>
+              <th>Spr Ov</th>
+              <th>Benchmark Ov</th>
+          </tr>
+        </thead>
+        <tbody >
+
+        </tbody>
+      </table>
+
+        </div>
+
+</div>
+    {% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/api/data',
+        serverSide: true,
+        columns: [
+          {data: 'Asset', orderable: false},
+          {data: 'Group', orderable: false},
+          {data: 'Cusip', orderable: true},
+          {data: 'Security Name', orderable: false},
+          {data: 'YTW', orderable: false},
+          {data: 'Px Yest', orderable: false},
+          {data: 'Px Today', orderable: false},
+          {data: 'Px Chg$', orderable: false},
+          {data: 'Px Chg%', orderable: false},
+          {data: 'Spr Yest', orderable: false},
+          {data: 'Spr Today', orderable: false},
+          {data: 'Spr Chg', orderable: false},
+          {data: 'Benchmark', orderable: false},
+          {data: 'Source', orderable: false},
+          {data: 'Yes Px Ov', orderable: false},
+          {data: 'Px Ov', orderable: false},
+          {data: 'Spr Ov', orderable: false},
+          {data: 'Benchmark Ov', orderable: false}
+        ],
+      });
+
+
+    });
+
+  </script>
+
+{% endblock %}
