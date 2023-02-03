@@ -35,15 +35,6 @@ def create_fake_users(n):
     db.session.commit()
     print(f'Added {n} fake users to the database.')
 
-def create_pickle():
-    query = User.query.all()
-    for item in query:
-        print(item.__dict__)
-    # get each column User.__table__.columns
-
-    data = {}
-    pd.DataFrame.from_dict(data) # data: dictionary
-
 def remove_users():
     db.drop_all()
     db.create_all()
@@ -85,21 +76,13 @@ def sort_users(descending=False):
     print(f'Sort_users descending {descending==True} order, time {time.time()-start}')
 
 def manipulate_cols():
-    # age - > get year, add to email address
     start = time.time()
     session.query((User.name+User.first_name+User.last_name).label('fullName')).all()
-    # for item in res:
-    #     n, f, l = item.name, item.first_name, item.last_name
-    #     print(n, f, l)
     print(f'manipulate_cols time: {time.time() - start}.')
 
 if __name__ == '__main__':
-    # if len(sys.argv) <= 1:
-    #     print('Pass the number of users you want to create as an argument.')
-    #     sys.exit(1)
     #remove_users()
-    create_pickle()
-# query_1col_users()
+    query_1col_users()
 # query_1row_users()
 #     create_fake_users(90000)
 #     count_users()
